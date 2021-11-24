@@ -1,15 +1,15 @@
 import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@uniswap/sdk'
 import { useMemo } from 'react'
-import { USDC } from '../constants'
+import { MIM } from '../constants'
 import { PairState, usePairs } from '../data/Reserves'
 import { useActiveWeb3React } from '../hooks'
 import { wrappedCurrency } from './wrappedCurrency'
 
 /**
- * Returns the price in USDC of the input currency
- * @param currency currency to compute the USDC price of
+ * Returns the price in MIM of the input currency
+ * @param currency currency to compute the MIM price of
  */
-export default function useUSDCPrice(currency?: Currency): Price | undefined {
+export default function useMIMPrice(currency?: Currency): Price | undefined {
   const { chainId } = useActiveWeb3React()
   const wrapped = wrappedCurrency(currency, chainId)
   const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
@@ -18,12 +18,12 @@ export default function useUSDCPrice(currency?: Currency): Price | undefined {
         chainId && wrapped && currencyEquals(WETH[chainId], wrapped) ? undefined : currency,
         chainId ? WETH[chainId] : undefined
       ],
-      [wrapped?.equals(USDC) ? undefined : wrapped, chainId === ChainId.MAINNET ? USDC : undefined],
-      [chainId ? WETH[chainId] : undefined, chainId === ChainId.MAINNET ? USDC : undefined]
+      [wrapped?.equals(MIM) ? undefined : wrapped, chainId === ChainId.AVALANCHE ? MIM : undefined],
+      [chainId ? WETH[chainId] : undefined, chainId === ChainId.AVALANCHE ? MIM : undefined]
     ],
     [chainId, currency, wrapped]
   )
-  const [[ethPairState, ethPair], [usdcPairState, usdcPair], [usdcEthPairState, usdcEthPair]] = usePairs(tokenPairs)
+  const [[ethPairState, ethPair], [MIMPairState, MIMPair], [MIMEthPairState, MIMEthPair]] = usePairs(tokenPairs)
 
   return useMemo(() => {
     if (!currency || !wrapped || !chainId) {
@@ -31,36 +31,36 @@ export default function useUSDCPrice(currency?: Currency): Price | undefined {
     }
     // handle weth/eth
     if (wrapped.equals(WETH[chainId])) {
-      if (usdcPair) {
-        const price = usdcPair.priceOf(WETH[chainId])
-        return new Price(currency, USDC, price.denominator, price.numerator)
+      if (MIMPair) {
+        const price = MIMPair.priceOf(WETH[chainId])
+        return new Price(currency, MIM, price.denominator, price.numerator)
       } else {
         return undefined
       }
     }
-    // handle usdc
-    if (wrapped.equals(USDC)) {
-      return new Price(USDC, USDC, '1', '1')
+    // handle MIM
+    if (wrapped.equals(MIM)) {
+      return new Price(MIM, MIM, '1', '1')
     }
 
     const ethPairETHAmount = ethPair?.reserveOf(WETH[chainId])
-    const ethPairETHUSDCValue: JSBI =
-      ethPairETHAmount && usdcEthPair ? usdcEthPair.priceOf(WETH[chainId]).quote(ethPairETHAmount).raw : JSBI.BigInt(0)
+    const ethPairETHMIMValue: JSBI =
+      ethPairETHAmount && MIMEthPair ? MIMEthPair.priceOf(WETH[chainId]).quote(ethPairETHAmount).raw : JSBI.BigInt(0)
 
     // all other tokens
-    // first try the usdc pair
-    if (usdcPairState === PairState.EXISTS && usdcPair && usdcPair.reserveOf(USDC).greaterThan(ethPairETHUSDCValue)) {
-      const price = usdcPair.priceOf(wrapped)
-      return new Price(currency, USDC, price.denominator, price.numerator)
+    // first try the MIM pair
+    if (MIMPairState === PairState.EXISTS && MIMPair && MIMPair.reserveOf(MIM).greaterThan(ethPairETHMIMValue)) {
+      const price = MIMPair.priceOf(wrapped)
+      return new Price(currency, MIM, price.denominator, price.numerator)
     }
-    if (ethPairState === PairState.EXISTS && ethPair && usdcEthPairState === PairState.EXISTS && usdcEthPair) {
-      if (usdcEthPair.reserveOf(USDC).greaterThan('0') && ethPair.reserveOf(WETH[chainId]).greaterThan('0')) {
-        const ethUsdcPrice = usdcEthPair.priceOf(USDC)
+    if (ethPairState === PairState.EXISTS && ethPair && MIMEthPairState === PairState.EXISTS && MIMEthPair) {
+      if (MIMEthPair.reserveOf(MIM).greaterThan('0') && ethPair.reserveOf(WETH[chainId]).greaterThan('0')) {
+        const ethMIMPrice = MIMEthPair.priceOf(MIM)
         const currencyEthPrice = ethPair.priceOf(WETH[chainId])
-        const usdcPrice = ethUsdcPrice.multiply(currencyEthPrice).invert()
-        return new Price(currency, USDC, usdcPrice.denominator, usdcPrice.numerator)
+        const MIMPrice = ethMIMPrice.multiply(currencyEthPrice).invert()
+        return new Price(currency, MIM, MIMPrice.denominator, MIMPrice.numerator)
       }
     }
     return undefined
-  }, [chainId, currency, ethPair, ethPairState, usdcEthPair, usdcEthPairState, usdcPair, usdcPairState, wrapped])
+  }, [chainId, currency, ethPair, ethPairState, MIMEthPair, MIMEthPairState, MIMPair, MIMPairState, wrapped])
 }

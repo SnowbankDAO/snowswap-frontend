@@ -27,13 +27,10 @@
     "@types/wcag-contrast": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
-    "@uniswap/governance": "^1.0.2",
-    "@uniswap/liquidity-staker": "^1.0.2",
-    "@uniswap/merkle-distributor": "1.0.1",
-    "@uniswap/sdk": "3.0.3",
-    "@uniswap/token-lists": "^1.0.0-beta.19",
-    "@uniswap/v2-core": "1.0.0",
-    "@uniswap/v2-periphery": "^1.1.0-beta.0",
+    "@uniswap/sdk": "git+ssh://git@github.com:SnowbankDAO/snowswap-sdk.git",
+    "@uniswap/token-lists": "git+ssh://git@github.com:SnowbankDAO/snowswap-token-lists.git",
+    "@uniswap/v2-core": "git+ssh://git@github.com:SnowbankDAO/snowswap-core.git",
+    "@uniswap/v2-periphery": "git+ssh://git@github.com:SnowbankDAO/snowswap-periphery.git",
     "@web3-react/core": "^6.0.9",
     "@web3-react/fortmatic-connector": "^6.0.9",
     "@web3-react/injected-connector": "^6.0.7",
@@ -97,6 +94,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:service-worker": "yarn build && yarn serve -s build",
+    "build:deps": "cd ./node_modules/@uniswap/v2-core && yarn compile && cd ../v2-periphery && yarn compile && cd ../token-lists && yarn build && cd ../sdk && yarn build && cd ../default-token-list && yarn build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -122,6 +120,6 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@uniswap/default-token-list": "^2.0.0"
+    "@uniswap/default-token-list": "git+ssh://git@github.com:SnowbankDAO/snowswap-default-token-list.git"
   }
 }

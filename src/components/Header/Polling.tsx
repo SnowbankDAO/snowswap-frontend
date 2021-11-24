@@ -11,9 +11,9 @@ const StyledPolling = styled.div`
   display: flex;
   align-items: center;
   right: 0;
-  bottom: 0;
+  bottom: 50px;
   padding: 1rem;
-  color: ${({ theme }) => theme.green1};
+  color: ${() => '#ffffff'};
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
     display: none;
@@ -34,7 +34,7 @@ const StyledPollingDot = styled.div`
   margin-left: 0.5rem;
   border-radius: 50%;
   position: relative;
-  background-color: ${({ theme }) => theme.green1};
+  background-color: ${() => '#ffffff'};
 `
 
 const rotate360 = keyframes`
