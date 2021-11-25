@@ -1,3 +1,4 @@
+import { getAddress } from '@ethersproject/address'
 import { Currency, ETHER, Token } from '@uniswap/sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
@@ -8,7 +9,7 @@ import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
 
 export const getTokenLogoURL = (address: string) =>
-  `https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/${address}/logo.png`
+  `https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/${getAddress(address)}/logo.png`
 
 const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};

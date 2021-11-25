@@ -207,20 +207,20 @@ function parseCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === '0xdE9E52F1838951e4d2bb6C59723B003c353979b6'.toUpperCase()) return '0xdE9E52F1838951e4d2bb6C59723B003c353979b6'
-    if (valid === false) return '0xdE9E52F1838951e4d2bb6C59723B003c353979b6'
+    if (urlParam.toUpperCase() === '0xde9e52f1838951e4d2bb6c59723b003c353979b6'.toUpperCase()) return '0xde9e52f1838951e4d2bb6c59723b003c353979b6'
+    if (valid === false) return '0xde9e52f1838951e4d2bb6c59723b003c353979b6'
   }
-  return '0xdE9E52F1838951e4d2bb6C59723B003c353979b6' ?? ''
+  return '0xde9e52f1838951e4d2bb6c59723b003c353979b6' ?? ''
 }
 
 function parseOutputCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === '0x130966628846bfd36ff31a822705796e8cb8c18d'.toUpperCase()) return '0x130966628846bfd36ff31a822705796e8cb8c18d'
-    if (valid === false) return '0x130966628846bfd36ff31a822705796e8cb8c18d'
+    if (urlParam.toUpperCase() === '0x130966628846BFd36ff31a822705796e8cb8C18D'.toUpperCase()) return '0x130966628846BFd36ff31a822705796e8cb8C18D'
+    if (valid === false) return '0x130966628846BFd36ff31a822705796e8cb8C18D'
   }
-  return '0x130966628846bfd36ff31a822705796e8cb8c18d' ?? ''
+  return '0x130966628846BFd36ff31a822705796e8cb8C18D' ?? ''
 }
 
 

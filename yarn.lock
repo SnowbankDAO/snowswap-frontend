@@ -3304,9 +3304,9 @@
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
-"@uniswap/default-token-list@git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-default-token-list.git":
+"@uniswap/default-token-list@git+ssh://git@github.com:SnowbankDAO/snowswap-default-token-list.git":
   version "2.0.0"
-  resolved "git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-default-token-list.git#2ce48b2c0d70826f99af7d7c5534ac36b8dc5651"
+  resolved "git+ssh://git@github.com:SnowbankDAO/snowswap-default-token-list.git#c45ae6a72f24bddff20a0b386c437ca2d2df3209"
   dependencies:
     "@ethersproject/address" "^5.0.2"
     "@uniswap/token-lists" "^1.0.0-beta.8"
@@ -3320,9 +3320,9 @@
   resolved "https://registry.yarnpkg.com/@uniswap/lib/-/lib-4.0.1-alpha.tgz#2881008e55f075344675b3bca93f020b028fbd02"
   integrity sha512-f6UIliwBbRsgVLxIaBANF6w09tYqc6Y/qXdsrbEmXHyFA7ILiKrIwRFXe1yOg8M3cksgVsO9N7yuL2DdCGQKBA==
 
-"@uniswap/sdk@git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-sdk.git":
+"@uniswap/sdk@git+ssh://git@github.com:SnowbankDAO/snowswap-sdk.git":
   version "3.0.3"
-  resolved "git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-sdk.git#552b2e06d08e91f84c0e3ef50568eca4423b34de"
+  resolved "git+ssh://git@github.com:SnowbankDAO/snowswap-sdk.git#dc9d2227777703072d51286c6fca7873f50973cd"
   dependencies:
     "@ethersproject/address" "^5.0.2"
     "@ethersproject/contracts" "^5.0.2"
@@ -3346,9 +3346,9 @@
   resolved "https://registry.yarnpkg.com/@uniswap/token-lists/-/token-lists-1.0.0-beta.27.tgz#8b02a979b0b0024cc96f60e694a3f6db6b2ccab2"
   integrity sha512-x5hmIniQ9TGqOBCRqfWcmZi/U5kB0qrHMDQ9igs3nMbK0wwmYLraL4owbIwXFGR/co6/lJYJC4K/Gjn4wZY5mQ==
 
-"@uniswap/token-lists@git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-token-lists.git":
+"@uniswap/token-lists@git+ssh://git@github.com:SnowbankDAO/snowswap-token-lists.git":
   version "1.0.0-beta.19"
-  resolved "git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-token-lists.git#ca62ec8d05dd391067df3729a3b38920a59d2a65"
+  resolved "git+ssh://git@github.com:SnowbankDAO/snowswap-token-lists.git#ca62ec8d05dd391067df3729a3b38920a59d2a65"
   dependencies:
     ajv "^6.12.2"
     husky "^4.2.5"
@@ -3356,25 +3356,8 @@
     tslib "^2.0.0"
     typescript "^3.9.5"
 
-"@uniswap/v2-core@git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-core.git":
-  version "1.0.1"
-  resolved "git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-core.git#56402e2e37197fc185ea71081621fa32c6345a94"
-  dependencies:
-    "@types/chai" "^4.2.6"
-    "@types/mocha" "^5.2.7"
-    chai "^4.2.0"
-    ethereum-waffle "^2.4.1"
-    ethereumjs-util "^6.2.0"
-    mocha "^6.2.2"
-    prettier "^1.19.1"
-    rimraf "^3.0.0"
-    solc "0.5.16"
-    ts-node "^8.5.4"
-    typescript "^3.7.3"
-
 "@uniswap/v2-core@git+ssh://git@github.com:SnowbankDAO/snowswap-core.git":
   version "1.0.1"
-  uid "56402e2e37197fc185ea71081621fa32c6345a94"
   resolved "git+ssh://git@github.com:SnowbankDAO/snowswap-core.git#56402e2e37197fc185ea71081621fa32c6345a94"
   dependencies:
     "@types/chai" "^4.2.6"
@@ -3389,9 +3372,9 @@
     ts-node "^8.5.4"
     typescript "^3.7.3"
 
-"@uniswap/v2-periphery@git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-periphery.git":
+"@uniswap/v2-periphery@git+ssh://git@github.com:SnowbankDAO/snowswap-periphery.git":
   version "1.1.0-beta.0"
-  resolved "git+https://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:x-oauth-basic@github.com/SnowbankDAO/snowswap-periphery.git#eb5bdb8996ba6b4c4771659b3dd8c189e90ffaab"
+  resolved "git+ssh://git@github.com:SnowbankDAO/snowswap-periphery.git#eb5bdb8996ba6b4c4771659b3dd8c189e90ffaab"
   dependencies:
     "@ethersproject/solidity" "^5.5.0"
     "@types/chai" "^4.2.6"
