@@ -95,7 +95,7 @@
     "start": "react-scripts start",
     "start:service-worker": "yarn build && yarn serve -s build",
     "build:deps": "cd ./node_modules/@uniswap/v2-core && yarn && yarn compile && cd ../v2-periphery && yarn compile && cd ../token-lists && yarn build && cd ../sdk && yarn build && cd ../default-token-list && yarn build",
-    "build": "react-scripts build",
+    "build": "env REACT_APP_VERCEL_GIT_COMMIT_AUTHOR_NAME=sb REACT_APP_VERCEL_GIT_COMMIT_AUTHOR_LOGIN=sb react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
