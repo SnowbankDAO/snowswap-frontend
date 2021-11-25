@@ -393,7 +393,7 @@ export default function Swap({ history }: RouteComponentProps) {
                         Slippage Tolerance
                       </ClickableText>
                       <ClickableText fontWeight={500} fontSize={14} color={theme.text2} onClick={toggleSettings}>
-                        {allowedSlippage / 100}%
+                        Maximum
                       </ClickableText>
                     </RowBetween>
                   )}

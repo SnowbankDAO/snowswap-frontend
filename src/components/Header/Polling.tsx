@@ -11,9 +11,9 @@ const StyledPolling = styled.div`
   display: flex;
   align-items: center;
   right: 0;
-  bottom: 50px;
+  bottom: 0;
   padding: 1rem;
-  color: ${() => '#ffffff'};
+  color: #000000;
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
     display: none;
@@ -21,7 +21,7 @@ const StyledPolling = styled.div`
 `
 const StyledPollingNumber = styled(TYPE.small)<{ breathe: boolean; hovering: boolean }>`
   transition: opacity 0.25s ease;
-  opacity: ${({ breathe, hovering }) => (hovering ? 0.7 : breathe ? 1 : 0.2)};
+  opacity: ${({ breathe, hovering }) => (hovering ? 0.7 : breathe ? 1 : 0.5)};
   :hover {
     opacity: 1;
   }
@@ -34,7 +34,7 @@ const StyledPollingDot = styled.div`
   margin-left: 0.5rem;
   border-radius: 50%;
   position: relative;
-  background-color: ${() => '#ffffff'};
+  background-color: #000000;
 `
 
 const rotate360 = keyframes`
