@@ -287,11 +287,6 @@ export default function Header() {
           >
             {t('pool')}
           </StyledNavLink>
-          <Text marginLeft={20} color={'white'}>
-            <span role="img" aria-label="warning">
-              ⚠️
-            </span> Slippage is set to maximum to prevent reverts due to high transaction trafic
-          </Text>
           {/* <StyledNavLink id={`stake-nav-link`} to={'/uni'}>
             UNI
           </StyledNavLink> */}

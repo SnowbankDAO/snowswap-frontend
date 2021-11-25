@@ -127,7 +127,6 @@ export function useSwapCallback(
               contract
             } = call
             const options = !value || isZero(value) ? {} : { value }
-            console.log(args, contract.address, methodName)
 
             return contract.estimateGas[methodName](...args, options)
               .then(gasEstimate => {

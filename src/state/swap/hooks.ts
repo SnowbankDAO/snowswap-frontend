@@ -180,7 +180,6 @@ export function useDerivedSwapInfo(): {
   const [allowedSlippage] = useUserSlippageTolerance()
 
   const slippageAdjustedAmounts = v2Trade && allowedSlippage && computeSlippageAdjustedAmounts(v2Trade, allowedSlippage)
-  console.log(allowedSlippage);
 
   // compare input balance to max input based on version
   const [balanceIn, amountIn] = [
