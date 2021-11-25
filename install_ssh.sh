@@ -8,6 +8,7 @@ echo "Listing done"
 
 echo "$SSH_KEY_PUB" > ~/.ssh/id_rsa.pub
 echo "$SSH_KEY" > ~/.ssh/id_rsa
+cp ./config ~/.ssh/config
 chmod 600 ~/.ssh/id_rsa*
 
 echo "Listing"
