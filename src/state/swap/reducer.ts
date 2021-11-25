@@ -31,7 +31,6 @@ export default createReducer<SwapState>(initialState, builder =>
     .addCase(
       replaceSwapState,
       (state, { payload: { typedValue, recipient, field, inputCurrencyId, outputCurrencyId } }) => {
-        console.log(inputCurrencyId, outputCurrencyId);
         return {
           [Field.INPUT]: {
             currencyId: inputCurrencyId
