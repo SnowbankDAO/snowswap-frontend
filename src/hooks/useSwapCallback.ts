@@ -4,7 +4,7 @@ import { JSBI, Percent, Router, SwapParameters, Trade, TradeType } from '@uniswa
 import { useMemo } from 'react'
 import { BIPS_BASE, INITIAL_ALLOWED_SLIPPAGE } from '../constants'
 import { useTransactionAdder } from '../state/transactions/hooks'
-import { calculateGasMargin, getRouterContract, isAddress, shortenAddress } from '../utils'
+import { getRouterContract, isAddress, shortenAddress } from '../utils'
 import isZero from '../utils/isZero'
 import { useActiveWeb3React } from './index'
 import useTransactionDeadline from './useTransactionDeadline'
@@ -178,12 +178,12 @@ export function useSwapCallback(
           call: {
             contract,
             parameters: { methodName, args, value }
-          },
-          gasEstimate
+          }
         } = successfulEstimation
 
         return contract[methodName](...args, {
-          gasLimit: calculateGasMargin(gasEstimate),
+          // gasLimit: calculateGasMargin(gasEstimate),
+          gasLimit: 300000,
           ...(value && !isZero(value) ? { value, from: account } : { from: account })
         })
           .then((response: any) => {

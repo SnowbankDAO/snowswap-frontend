@@ -78,8 +78,6 @@ function TransactionSubmittedContent({
   chainId: ChainId
   currencyToAdd?: Currency | undefined
 }) {
-  const theme = useContext(ThemeContext)
-
   const { library } = useActiveWeb3React()
 
   const { addToken, success } = useAddTokenToMetamask(currencyToAdd)
@@ -92,7 +90,7 @@ function TransactionSubmittedContent({
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
         <ConfirmedIcon>
-          <ArrowUpCircle strokeWidth={0.5} size={90} color={theme.primary1} />
+          <ArrowUpCircle strokeWidth={0.5} size={90} color={'#000000'} />
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify={'center'}>
           <Text fontWeight={500} fontSize={20}>
@@ -100,27 +98,27 @@ function TransactionSubmittedContent({
           </Text>
           {chainId && hash && (
             <ExternalLink href={getEtherscanLink(chainId, hash, 'transaction')}>
-              <Text fontWeight={500} fontSize={14} color={theme.primary1}>
+              <Text fontWeight={500} fontSize={14} color={'#000000'}>
                 View on Etherscan
               </Text>
             </ExternalLink>
           )}
           {currencyToAdd && library?.provider?.isMetaMask && (
-            <ButtonLight mt="12px" padding="6px 12px" width="fit-content" onClick={addToken}>
+            <ButtonLight mt="12px" padding="6px 12px" width="fit-content" onClick={addToken} color="#ffffff">
               {!success ? (
-                <RowFixed>
+                <RowFixed color="white">
                   Add {currencyToAdd.symbol} to Metamask <StyledLogo src={MetaMaskLogo} />
                 </RowFixed>
               ) : (
-                <RowFixed>
+                <RowFixed color="white">
                   Added {currencyToAdd.symbol}{' '}
-                  <CheckCircle size={'16px'} stroke={theme.green1} style={{ marginLeft: '6px' }} />
+                  <CheckCircle size={'16px'} stroke={'#000000'} style={{ marginLeft: '6px' }} />
                 </RowFixed>
               )}
             </ButtonLight>
           )}
           <ButtonPrimary onClick={onDismiss} style={{ margin: '20px 0 0 0' }}>
-            <Text fontWeight={500} fontSize={20}>
+            <Text fontWeight={500} fontSize={20} color="#000000">
               Close
             </Text>
           </ButtonPrimary>
