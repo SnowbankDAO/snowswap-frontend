@@ -14,6 +14,6 @@ echo "Listing"
 ls -la ~/.ssh
 echo "Listing done"
 
-ssh-add
+ssh-add -s ~/.ssh/id_rsa
 
 yarn vercel
